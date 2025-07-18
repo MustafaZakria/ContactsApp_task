@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.ContactListApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--    <style name="Theme.ContactListApp" parent="Theme.Material3.DayNight.NoActionBar">-->
+        <!-- Primary color -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- SearchView compatibility -->
+        <item name="searchViewStyle">@style/CustomSearchViewStyle</item>
+    </style>
+
+    <style name="CustomSearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <!-- Customize your SearchView appearance here -->
+    </style>
+</resources>
