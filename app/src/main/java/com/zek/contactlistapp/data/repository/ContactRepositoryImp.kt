@@ -12,7 +12,7 @@ class ContactRepositoryImp(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ): ContactRepository {
     override fun getContactsBySearch(query: String): LiveData<List<Contact>> {
-        return getContactsBySearch(query)
+        return contactDao.getContactsBySearch(query)
     }
 
     override fun getAllContacts(): LiveData<List<Contact>> {

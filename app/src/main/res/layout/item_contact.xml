@@ -31,14 +31,6 @@
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="+1 234 567 8900" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_phone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

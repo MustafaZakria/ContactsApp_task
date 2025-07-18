@@ -2,7 +2,6 @@ package com.zek.contactlistapp.presentation.contactList
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +31,7 @@ class ContactsListFragment : Fragment() {
             )
         }
     )
-    private lateinit var adapter: ContactAdapter
+    private lateinit var contactAdapter: ContactAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,7 +52,7 @@ class ContactsListFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = ContactAdapter(
+        contactAdapter = ContactAdapter(
             onItemClick = { id ->
                 navigateToContactDetails(id)
             },
@@ -63,12 +62,12 @@ class ContactsListFragment : Fragment() {
         )
 
         binding.recyclerViewContacts.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = adapter
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = contactAdapter
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
 
-        adapter.setupSwipeToDelete(binding.recyclerViewContacts)
+        contactAdapter.setupSwipeToDelete(binding.recyclerViewContacts)
     }
 
     private fun setupSearchView() {
@@ -113,7 +112,7 @@ class ContactsListFragment : Fragment() {
 
     private fun observeContacts() {
         viewModel.contacts.observe(viewLifecycleOwner) { contacts ->
-            adapter.submitList(contacts)
+            contactAdapter.submitList(contacts)
             binding.emptyState.visibility = if (contacts.isEmpty()) View.VISIBLE else View.GONE
         }
     }

@@ -16,7 +16,7 @@ interface ContactDao {
     @Query("DELETE FROM contacts WHERE id == :id")
     suspend fun delete(id: Int): Void
 
-    @Query("SELECT * FROM contacts WHERE name LIKE :query OR phone LIKE :query ORDER BY name ASC")
+    @Query("SELECT * FROM contacts WHERE name LIKE '%' || :query || '%' COLLATE NOCASE OR phone LIKE '%' || :query || '%' COLLATE NOCASE ORDER BY name ASC")
     fun getContactsBySearch(query: String): LiveData<List<Contact>>
 
     @Query("SELECT * FROM contacts ORDER BY name ASC")
